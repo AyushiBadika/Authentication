@@ -6,18 +6,15 @@ import { useEffect, useState } from "react";
 import { auth } from "./components/firebase";
 import "./App.css";
 export default function App() {
-  const [user, setUser] = useState(false);
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => setUser(user));
-  });
+  // const [user, setUser] = useState(false);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => setUser(user));
+  // });
   return (
     <BrowserRouter>
       <div className="flex justify-center items-center rounded-md py-8 px-8 shadow-md">
         <Routes>
-          <Route
-            path="/"
-            element={user ? <Navigate to="/profile" /> : <Login />}
-          />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
