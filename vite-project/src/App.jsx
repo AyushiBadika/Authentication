@@ -12,7 +12,7 @@ export default function App() {
   });
   return (
     <BrowserRouter>
-      <div className="flex  justify-center items-center rounded-md py-8 px-8 shadow-md">
+      <div className="flex justify-center items-center rounded-md py-8 px-8 shadow-md">
         <Routes>
           <Route
             path="/"

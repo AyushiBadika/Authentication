@@ -12,7 +12,7 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
 
-      window.location.href = "./profile";
+      window.location.href = "/profile";
     } catch (error) {
       console.log(error.message);
     }
