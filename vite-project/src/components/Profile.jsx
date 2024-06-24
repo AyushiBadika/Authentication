@@ -5,14 +5,18 @@ export default function Profile() {
   const [userDetails, setUserDetails] = useState(null);
 
   const fetchUser = async () => {
-    auth.onAuthStateChanged(async (user) => {
-      const docRef = await doc(db, "Users", user.uid);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setUserDetails(docSnap.data());
-        console.log(docSnap.data());
-      }
-    });
+    try {
+      auth.onAuthStateChanged(async (user) => {
+        const docRef = await doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setUserDetails(docSnap.data());
+          console.log(docSnap.data());
+        }
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   useEffect(() => fetchUser, []);
 
