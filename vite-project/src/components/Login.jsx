@@ -10,9 +10,9 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-
-      window.location.href = "/profile";
+      await signInWithEmailAndPassword(auth, email, password).then(
+        () => (window.location.href = "/profile")
+      );
     } catch (error) {
       console.log(error.message);
     }
